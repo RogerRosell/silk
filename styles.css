@@ -1,0 +1,161 @@
+@font-face {
+  font-family: Futura;
+  src: url(FuturaPTCondBookOblique.otf);
+}
+
+/* *, */
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.background {
+  background-color: #000;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+.logo {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.half-1 {
+  height: 100vh;
+  width: 50vw;
+  border-right: 1.5px solid #00d4ff;
+  transform: rotate(6deg) translateY(-120px) scaleY(2) translateX(-16px);
+}
+
+@media (min-width: 1200px) {
+  .half-1 {
+    transform: rotate(6deg) translateY(-120px) scaleY(2) translateX(-17px);
+  }
+}
+
+@media (min-width: 1400px) {
+  .half-1 {
+    transform: rotate(6deg) translateY(-120px) scaleY(2) translateX(-18px);
+  }
+}
+.silk-logo {
+  position: absolute;
+  top: 50vh;
+  left: calc(50vw-45px);
+  height: 30px;
+  width: auto;
+}
+
+.links {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+a {
+    font-family: Futura;
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    letter-spacing: 5px;
+    overflow: hidden;
+  }
+
+.bottom-left, .top-left, .bottom-right, .top-right {
+  height: 50%;
+  width: 50%;
+  display: flex;
+}
+
+.top-left {
+    align-items: flex-start;
+}
+.top-left a{
+    margin-left:32px;
+    margin-top:32px;
+    background: linear-gradient(to right, #00d4ff, #00d4ff 50%, white 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
+}
+
+.bottom-left {
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.bottom-left a {
+    margin-left:32px;
+    margin-bottom:32px;
+    background: linear-gradient(to right, #00d4ff, #00d4ff 50%, white 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
+}
+
+.bottom-right {
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.bottom-right a {
+    margin-right:32px;
+    margin-bottom:32px;
+    background: linear-gradient(to left, #00d4ff, #00d4ff 50%, white 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 0;
+    transition: background-position 275ms ease;
+}
+
+.top-right {
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.top-right a {
+    margin-right:32px;
+    margin-top:32px;
+    background: linear-gradient(to left, #00d4ff, #00d4ff 50%, white 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 0;
+    transition: background-position 275ms ease;
+}
+
+a:hover {
+    /* color: #00d4ff; */
+    background-position: 0 100%;
+}
+
+.top-right a:hover, .bottom-right a:hover {
+    background-position: 100% 100%;
+}
