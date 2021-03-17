@@ -1,3 +1,26 @@
+@font-face {
+  font-family: Futura;
+  src: url("../FuturaPTCondBookOblique.otf");
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12,7 +35,7 @@ body {
 
 .half-1 {
   height: 100vh;
-  width: calc(50vw + 17px);
+  width: calc(50vw - 3px);
   border-right: 1px solid #00d4ff;
   -webkit-transform: rotate(6.5deg) translateY(-120px) scaleY(2) translateX(-14px);
           transform: rotate(6.5deg) translateY(-120px) scaleY(2) translateX(-14px);
@@ -61,6 +84,8 @@ body {
 }
 
 .content {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   z-index: 10;
   display: -ms-grid;
   display: grid;
@@ -69,11 +94,11 @@ body {
   height: 100vh;
   width: 100%;
   overflow: hidden;
-  -ms-grid-columns: (auto)[3];
-      grid-template-columns: repeat(3, auto);
-  -ms-grid-rows: (auto)[3];
-      grid-template-rows: repeat(3, auto);
-      grid-template-areas: "top-left . top-right" ".  logo  ." "bottom-left . bottom-right";
+  -ms-grid-columns: (auto)[2];
+      grid-template-columns: repeat(2, auto);
+  -ms-grid-rows: (auto)[2];
+      grid-template-rows: repeat(2, auto);
+      grid-template-areas: "top-left top-right" "bottom-left bottom-right";
 }
 
 .content .link {
@@ -90,7 +115,7 @@ body {
 }
 
 .content .link.bottom-left {
-  -ms-grid-row: 3;
+  -ms-grid-row: 2;
   -ms-grid-column: 1;
   grid-area: bottom-left;
   -ms-grid-column-align: start;
@@ -157,45 +182,9 @@ body {
   background-position: 0 100%;
 }
 
-@-webkit-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.content .link.silk-logo {
-  -ms-grid-row: 2;
-  -ms-grid-column: 2;
-  grid-area: logo;
-  -ms-grid-column-align: center;
-      justify-self: center;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  opacity: 0;
-  -webkit-animation: fadein ease 1s 0.3s;
-          animation: fadein ease 1s 0.3s;
-  -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
 .content .link.top-right {
   -ms-grid-row: 1;
-  -ms-grid-column: 3;
+  -ms-grid-column: 2;
   grid-area: top-right;
   -ms-grid-column-align: end;
       justify-self: end;
@@ -228,8 +217,8 @@ body {
 }
 
 .content .link.bottom-right {
-  -ms-grid-row: 3;
-  -ms-grid-column: 3;
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
   grid-area: bottom-right;
   -ms-grid-column-align: end;
       justify-self: end;
@@ -259,5 +248,44 @@ body {
 
 .content .link.bottom-right a:hover {
   background-position: 100% 100%;
+}
+
+.silk-logo {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-animation: fadein ease 1s 0.3s;
+          animation: fadein ease 1s 0.3s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+}
+
+@media (min-width: 768px) {
+  .half-1 {
+    width: calc(50vw - 4px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .half-1 {
+    width: calc(50vw - 5px);
+  }
+}
+
+@media (min-width: 1400px) {
+  .half-1 {
+    width: calc(50vw - 6px);
+  }
 }
 /*# sourceMappingURL=main.css.map */
