@@ -1,0 +1,263 @@
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #151515;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.half-1 {
+  height: 100vh;
+  width: calc(50vw + 17px);
+  border-right: 1px solid #00d4ff;
+  -webkit-transform: rotate(6.5deg) translateY(-120px) scaleY(2) translateX(-14px);
+          transform: rotate(6.5deg) translateY(-120px) scaleY(2) translateX(-14px);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@-webkit-keyframes reveal {
+  from {
+    -webkit-clip-path: polygon(0% calc(50% - 18px), 100% calc(50% - 18px), 100% calc(50% + 12px), 0% calc(50% + 12px));
+            clip-path: polygon(0% calc(50% - 18px), 100% calc(50% - 18px), 100% calc(50% + 12px), 0% calc(50% + 12px));
+  }
+  to {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes reveal {
+  from {
+    -webkit-clip-path: polygon(0% calc(50% - 18px), 100% calc(50% - 18px), 100% calc(50% + 12px), 0% calc(50% + 12px));
+            clip-path: polygon(0% calc(50% - 18px), 100% calc(50% - 18px), 100% calc(50% + 12px), 0% calc(50% + 12px));
+  }
+  to {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.half-mask {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0%;
+  left: 0;
+  background-color: 151515;
+  -webkit-clip-path: polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%);
+          clip-path: polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%);
+  -webkit-animation: reveal ease 0.5s 1s;
+          animation: reveal ease 0.5s 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.content {
+  z-index: 10;
+  display: -ms-grid;
+  display: grid;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  -ms-grid-columns: (auto)[3];
+      grid-template-columns: repeat(3, auto);
+  -ms-grid-rows: (auto)[3];
+      grid-template-rows: repeat(3, auto);
+      grid-template-areas: "top-left . top-right" ".  logo  ." "bottom-left . bottom-right";
+}
+
+.content .link {
+  padding: 32px;
+}
+
+.content .link a {
+  font-family: Futura;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  letter-spacing: 5px;
+  overflow: hidden;
+}
+
+.content .link.bottom-left {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: bottom-left;
+  -ms-grid-column-align: start;
+      justify-self: start;
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+  opacity: 0;
+  -webkit-animation: fadein ease 0.4s 2s;
+          animation: fadein ease 0.4s 2s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.content .link.bottom-left a {
+  background: -webkit-gradient(linear, left top, right top, from(#00d4ff), color-stop(50%, #00d4ff), color-stop(50%, white));
+  background: linear-gradient(to right, #00d4ff, #00d4ff 50%, white 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  -webkit-transition: background-position 275ms ease;
+  transition: background-position 275ms ease;
+}
+
+.content .link.bottom-left a:hover {
+  background-position: 0 100%;
+}
+
+.content .link.top-left {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: top-left;
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+  -ms-grid-column-align: start;
+      justify-self: start;
+  opacity: 0;
+  -webkit-animation: fadein ease 0.4s 1.6s;
+          animation: fadein ease 0.4s 1.6s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.content .link.top-left a {
+  background: -webkit-gradient(linear, left top, right top, from(#00d4ff), color-stop(50%, #00d4ff), color-stop(50%, white));
+  background: linear-gradient(to right, #00d4ff, #00d4ff 50%, white 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  -webkit-transition: background-position 275ms ease;
+  transition: background-position 275ms ease;
+}
+
+.content .link.top-left a:hover {
+  background-position: 0 100%;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.content .link.silk-logo {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: logo;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  opacity: 0;
+  -webkit-animation: fadein ease 1s 0.3s;
+          animation: fadein ease 1s 0.3s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.content .link.top-right {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: top-right;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+  opacity: 0;
+  -webkit-animation: fadein ease 0.4s 1.8s;
+          animation: fadein ease 0.4s 1.8s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.content .link.top-right a {
+  background: -webkit-gradient(linear, right top, left top, from(#00d4ff), color-stop(50%, #00d4ff), color-stop(50%, white));
+  background: linear-gradient(to left, #00d4ff, #00d4ff 50%, white 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 0;
+  -webkit-transition: background-position 275ms ease;
+  transition: background-position 275ms ease;
+}
+
+.content .link.top-right a:hover {
+  background-position: 100% 100%;
+}
+
+.content .link.bottom-right {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: bottom-right;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+  opacity: 0;
+  -webkit-animation: fadein ease 0.4s 2.2s;
+          animation: fadein ease 0.4s 2.2s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.content .link.bottom-right a {
+  background: -webkit-gradient(linear, right top, left top, from(#00d4ff), color-stop(50%, #00d4ff), color-stop(50%, white));
+  background: linear-gradient(to left, #00d4ff, #00d4ff 50%, white 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 0;
+  -webkit-transition: background-position 275ms ease;
+  transition: background-position 275ms ease;
+}
+
+.content .link.bottom-right a:hover {
+  background-position: 100% 100%;
+}
+/*# sourceMappingURL=main.css.map */

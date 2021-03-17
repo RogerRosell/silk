@@ -1,0 +1,195 @@
+body {
+  display: flex;
+  background-color: #151515;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.half-1 {
+  height: 100vh;
+  width: calc(50vw + 17px);
+  border-right: 1px solid #00d4ff;
+  transform: rotate(6.5deg) translateY(-120px) scaleY(2) translateX(-14px);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@keyframes reveal {
+  from {
+    clip-path: polygon(
+    0% calc(50% - 18px), /* top left */
+    100% calc(50% - 18px), /* top right */
+    100% calc(50% + 12px), /* bottom right */
+    0% calc(50% + 12px) /* bottom left */
+  );
+  }
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.half-mask {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0%;
+  left: 0;
+  background-color: 151515;
+  clip-path: polygon(
+    0% 50%, /* top left */
+    100% 50%, /* top right */
+    100% 50%, /* bottom right */
+    0% 50% /* bottom left */
+  );
+  animation: reveal ease 0.5s 1s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+}
+
+.content {
+  z-index: 10;
+  display: grid;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas:
+    "top-left . top-right"
+    ".  logo  ."
+    "bottom-left . bottom-right";
+
+  .link {
+    padding: 32px;
+
+    a {
+      font-family: Futura;
+      text-decoration: none;
+      color: white;
+      font-size: 20px;
+      letter-spacing: 5px;
+      overflow: hidden;
+    }
+
+    &.bottom-left {
+      grid-area: bottom-left;
+      justify-self: start;
+      align-self: end;
+      opacity: 0;
+      animation: fadein ease 0.4s 2s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+
+      a {
+        background: linear-gradient(to right, #00d4ff, #00d4ff 50%, white 50%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% 100%;
+        background-position: 100%;
+        transition: background-position 275ms ease;
+
+        &:hover {
+          background-position: 0 100%;
+        }
+      }
+    }
+
+    &.top-left {
+      grid-area: top-left;
+      align-self: start;
+      justify-self: start;
+      opacity: 0;
+      animation: fadein ease 0.4s 1.6s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+
+      a {
+        background: linear-gradient(to right, #00d4ff, #00d4ff 50%, white 50%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% 100%;
+        background-position: 100%;
+        transition: background-position 275ms ease;
+
+        &:hover {
+          background-position: 0 100%;
+        }
+      }
+    }
+
+    @keyframes fadein {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    &.silk-logo {
+      grid-area: logo;
+      justify-self: center;
+      align-self: center;
+      opacity: 0;
+      animation: fadein ease 1s 0.3s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+
+    &.top-right {
+      grid-area: top-right;
+      justify-self: end;
+      align-self: start;
+      opacity: 0;
+      animation: fadein ease 0.4s 1.8s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+
+      a {
+        background: linear-gradient(to left, #00d4ff, #00d4ff 50%, white 50%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% 100%;
+        background-position: 0;
+        transition: background-position 275ms ease;
+
+        &:hover {
+          background-position: 100% 100%;
+        }
+      }
+    }
+
+    &.bottom-right {
+      grid-area: bottom-right;
+      justify-self: end;
+      align-self: end;
+      opacity: 0;
+      animation: fadein ease 0.4s 2.2s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+
+      a {
+        background: linear-gradient(to left, #00d4ff, #00d4ff 50%, white 50%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% 100%;
+        background-position: 0;
+        transition: background-position 275ms ease;
+
+        &:hover {
+          background-position: 100% 100%;
+        }
+      }
+    }
+  }
+}
