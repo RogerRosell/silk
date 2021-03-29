@@ -12,21 +12,34 @@
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
 body {
   display: flex;
   background-color: #151515;
   padding: 0;
   margin: 0;
-  height: 100vh;
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+html {
+  height: -webkit-fill-available;
 }
 
 .half-1 {
   height: 100vh;
   width: calc(50vw - 3px);
   border-right: 1px solid #00d4ff;
-  transform: rotate(6.5deg) translateY(-120px) scaleY(2) translateX(-14px);
+  transform: rotate(7deg) translateY(-120px) scaleY(2) translateX(-14px);
   position: fixed;
   top: 0;
   left: 0;
@@ -62,6 +75,16 @@ body {
   animation: reveal ease 0.5s 1s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+
+  .bg-image {
+    width: 50%;
+    img {
+      width: 50vw;
+      height: 100vh;
+      object-fit: cover;
+      object-position: 0 100%;
+    }
+  }
 }
 
 .content {
@@ -136,6 +159,10 @@ body {
         &:hover {
           background-position: 0 100%;
         }
+
+        &.active {
+          background-position: 0 100%;
+        }
       }
     }
 
@@ -190,8 +217,8 @@ body {
 }
 
 .silk-logo {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
@@ -202,21 +229,91 @@ body {
   display: grid;
   align-items: center;
   justify-items: center;
+  transform: rotate(7deg);
+
+  .js-logo {
+    transform: rotate(-7deg);
+  }
 }
 
-@media (min-width:768px) {
+.form-container {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  z-index: 20;
+  right: -100%;
+  opacity: 0;
+  bottom: 0;
+  display: grid;
+  pointer-events: none;
+
+  .form {
+    width: 400px;
+    align-self: center;
+    justify-self: start;
+    margin-left: 15%;
+    padding: 40px 32px;
+    pointer-events: visible;
+
+    h1 {
+      font-family: Futura;
+      color: white;
+      font-size: 20px;
+      letter-spacing: 5px;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    input {
+      height: 34px;
+      font-family: Futura;
+      color: rgba(245, 245, 245, 0.3);
+      font-size: 20px;
+      text-transform: uppercase;
+      padding-bottom: 8px;
+      letter-spacing: 5px;
+      width: 285px;
+      display: block;
+      box-sizing: border-box;
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid rgba(245, 245, 245, 0.3);
+      margin-bottom: 30px;
+      margin-top: 40px;
+
+      &.alerta {
+        color: #00d4ff;
+      }
+    }
+
+    button {
+      background-color: transparent;
+      font-family: Futura;
+      color: rgba(245, 245, 245, 1);
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      border: 1px solid #00d4ff;
+      padding: 9px 26px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (min-width: 768px) {
   .half-1 {
     width: calc(50vw - 4px);
   }
 }
 
-@media (min-width:1200px) {
+@media (min-width: 1200px) {
   .half-1 {
     width: calc(50vw - 5px);
   }
 }
 
-@media (min-width:1400px) {
+@media (min-width: 1400px) {
   .half-1 {
     width: calc(50vw - 6px);
   }
