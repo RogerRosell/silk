@@ -37,9 +37,9 @@ html {
 
 .half-1 {
   height: 100vh;
-  width: calc(50vw - 3px);
+  width: 50vw;
   border-right: 1px solid #00d4ff;
-  transform: rotate(7deg) translateY(-120px) scaleY(2) translateX(-14px);
+  transform: rotate(7deg) scaleY(2) ;
   position: fixed;
   top: 0;
   left: 0;
@@ -229,11 +229,6 @@ html {
   display: grid;
   align-items: center;
   justify-items: center;
-  transform: rotate(7deg);
-
-  .js-logo {
-    transform: rotate(-7deg);
-  }
 }
 
 .form-container {
@@ -302,19 +297,37 @@ html {
 }
 
 @media (min-width: 768px) {
-  .half-1 {
-    width: calc(50vw - 4px);
+  #silkLogo {
+    margin-left:1px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #silkLogo {
+    margin-left:2px;
   }
 }
 
 @media (min-width: 1200px) {
-  .half-1 {
-    width: calc(50vw - 5px);
+  #silkLogo {
+    margin-left:3px;
   }
 }
 
 @media (min-width: 1400px) {
-  .half-1 {
-    width: calc(50vw - 6px);
+  #silkLogo {
+    margin-left:4px;
+  }
+}
+
+@media (min-width: 1600px) {
+  #silkLogo {
+    margin-left:5px;
+  }
+}
+
+@media (min-width: 1800px) {
+  #silkLogo {
+    margin-left:6px;
   }
 }
