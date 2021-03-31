@@ -236,10 +236,10 @@ html {
   width: 50%;
   position: absolute;
   z-index: 20;
-  right: -100%;
+  right: 0;
+  display: grid;
   opacity: 0;
   bottom: 0;
-  display: grid;
   pointer-events: none;
 
   .form {
