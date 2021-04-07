@@ -36,22 +36,24 @@ html {
 }
 
 .half-1 {
-  height: 100vh;
+  height: 100%;
   width: 50vw;
   border-right: 1px solid #00d4ff;
-  transform: rotate(7deg) scaleY(2) ;
+  transform: rotate(7deg) scaleY(2);
   position: fixed;
   top: 0;
   left: 0;
+
+  overflow: hidden;
 }
 
 @keyframes reveal {
   from {
     clip-path: polygon(
       0% calc(50% - 18px),
-      /* top left */ 100% calc(50% - 18px),
-      /* top right */ 100% calc(50% + 12px),
-      /* bottom right */ 0% calc(50% + 12px) /* bottom left */
+      100% calc(50% - 18px),
+      100% calc(50% + 12px),
+      0% calc(50% + 12px)
     );
   }
   to {
@@ -65,13 +67,8 @@ html {
   position: fixed;
   top: 0%;
   left: 0;
-  background-color: 151515;
-  clip-path: polygon(
-    0% 50%,
-    /* top left */ 100% 50%,
-    /* top right */ 100% 50%,
-    /* bottom right */ 0% 50% /* bottom left */
-  );
+  background-color: #151515;
+  clip-path: polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%);
   animation: reveal ease 0.5s 1s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -103,6 +100,11 @@ html {
     "bottom-left bottom-right";
 
   .link {
+    // &:not(:first-of-type){
+    //    @media (max-width:768px) {
+    //     display: none;
+    //   }
+    // }
     padding: 32px;
 
     a {
@@ -233,29 +235,50 @@ html {
 
 .form-container {
   height: 100%;
-  width: 50%;
   position: absolute;
   z-index: 20;
-  right: 0;
-  display: grid;
+  left: 140px;
+  display: none;
   opacity: 0;
   bottom: 0;
   pointer-events: none;
 
+  .holder {
+    transform: skew(-7deg);
+    overflow: hidden;
+    width: 450px;
+    margin-left: 9px;
+    margin-bottom: 50px;
+    display: none;
+  }
+
+  .rotate {
+    position: relative;
+    white-space: pre-wrap;
+    transform: skew(7deg);
+    display: inline-block;
+
+    &:first-of-type {
+      white-space: unset;
+      margin-right: 8px;
+    }
+  }
+
   .form {
-    width: 400px;
-    align-self: center;
+    width: 100%;
+    overflow: hidden;
+    align-self: end;
     justify-self: start;
-    margin-left: 15%;
-    padding: 40px 32px;
+    padding-left: 30px;
     pointer-events: visible;
+    margin-bottom: 100px;
 
     h1 {
       font-family: Futura;
       color: white;
       font-size: 20px;
       letter-spacing: 5px;
-      margin: 0;
+      margin-left: 25px;
       text-transform: uppercase;
     }
 
@@ -267,14 +290,26 @@ html {
       text-transform: uppercase;
       padding-bottom: 8px;
       letter-spacing: 5px;
-      width: 285px;
+      max-width: 250px;
       display: block;
       box-sizing: border-box;
       background: transparent;
       border: 0;
       border-bottom: 1px solid rgba(245, 245, 245, 0.3);
-      margin-bottom: 30px;
-      margin-top: 40px;
+      margin-top: 14px;
+
+      &#name {
+        margin-left: 44px;
+      }
+      &#surname {
+        margin-left: 36px;
+      }
+      &#phone {
+        margin-left: 28px;
+      }
+      &#email {
+        margin-left: 20px;
+      }
 
       &.alerta {
         color: #00d4ff;
@@ -285,49 +320,90 @@ html {
       background-color: transparent;
       font-family: Futura;
       color: rgba(245, 245, 245, 1);
-      font-size: 20px;
+      font-size: 16px;
       text-transform: uppercase;
       letter-spacing: 5px;
       border: 1px solid #00d4ff;
-      padding: 9px 26px;
-      margin-top: 15px;
+      padding: 6px 14px;
+      margin-top: 27px;
       cursor: pointer;
     }
   }
 }
 
 @media (min-width: 768px) {
+  .form-container {
+    left: unset;
+    right: 0;
+    width: 50%;
+    .holder {
+      display: block;
+    }
+    .form {
+      margin-bottom: unset;
+      width: 600px;
+      margin-left: 15%;
+      padding: 40px 32px;
+      align-self: center;
+      h1 {
+        margin: 0;
+      }
+      input {
+        width: 285px;
+        margin-bottom: 30px;
+        margin-top: 40px;
+        &#name {
+          margin-left: 56px;
+        }
+        &#surname {
+          margin-left: 48px;
+        }
+        &#phone {
+          margin-left: 40px;
+        }
+        &#email {
+          margin-left: 32px;
+        }
+      }
+      button {
+        margin-top: 15px;
+        font-size: 20px;
+        letter-spacing: 5px;
+        padding: 9px 26px;
+      }
+    }
+  }
   #silkLogo {
-    margin-left:1px;
+    margin-left: 1px;
   }
 }
 
 @media (min-width: 1024px) {
   #silkLogo {
-    margin-left:2px;
+    margin-left: 2px;
   }
 }
 
 @media (min-width: 1200px) {
   #silkLogo {
-    margin-left:3px;
+    margin-left: 3px;
   }
 }
 
 @media (min-width: 1400px) {
   #silkLogo {
-    margin-left:4px;
+    margin-left: 4px;
   }
 }
 
 @media (min-width: 1600px) {
   #silkLogo {
-    margin-left:5px;
+    margin-left: 5px;
   }
 }
 
 @media (min-width: 1800px) {
   #silkLogo {
-    margin-left:6px;
+    margin-left: 6px;
   }
 }
