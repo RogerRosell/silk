@@ -377,19 +377,19 @@ html {
   margin-top: 14px;
 }
 
-.form-container .form input#name {
+.form-container .form input#FNAME {
   margin-left: 44px;
 }
 
-.form-container .form input#surname {
+.form-container .form input#LNAME {
   margin-left: 36px;
 }
 
-.form-container .form input#phone {
+.form-container .form input#PHONE {
   margin-left: 28px;
 }
 
-.form-container .form input#email {
+.form-container .form input#EMAIL {
   margin-left: 20px;
 }
 
@@ -436,16 +436,16 @@ html {
     margin-bottom: 30px;
     margin-top: 40px;
   }
-  .form-container .form input#name {
+  .form-container .form input#FNAME {
     margin-left: 56px;
   }
-  .form-container .form input#surname {
+  .form-container .form input#LNAME {
     margin-left: 48px;
   }
-  .form-container .form input#phone {
+  .form-container .form input#PHONE {
     margin-left: 40px;
   }
-  .form-container .form input#email {
+  .form-container .form input#EMAIL {
     margin-left: 32px;
   }
   .form-container .form button {

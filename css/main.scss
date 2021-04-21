@@ -298,16 +298,16 @@ html {
       border-bottom: 1px solid rgba(245, 245, 245, 0.3);
       margin-top: 14px;
 
-      &#name {
+      &#FNAME {
         margin-left: 44px;
       }
-      &#surname {
+      &#LNAME {
         margin-left: 36px;
       }
-      &#phone {
+      &#PHONE {
         margin-left: 28px;
       }
-      &#email {
+      &#EMAIL {
         margin-left: 20px;
       }
 
@@ -352,16 +352,16 @@ html {
         width: 285px;
         margin-bottom: 30px;
         margin-top: 40px;
-        &#name {
+        &#FNAME {
           margin-left: 56px;
         }
-        &#surname {
+        &#LNAME {
           margin-left: 48px;
         }
-        &#phone {
+        &#PHONE {
           margin-left: 40px;
         }
-        &#email {
+        &#EMAIL {
           margin-left: 32px;
         }
       }

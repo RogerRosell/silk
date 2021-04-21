@@ -27,25 +27,26 @@ function textoDiagonal() {
 }
 
 function animacion(elem) {
-  switch(elem) {
-    case 'logo':
+  switch (elem) {
+    case "logo":
       var posicion = posicionLogo();
       var horizontalPos = posicion["horizontal"];
       var verticalPos = posicion["vertical"];
       var silkLogo = document.getElementById("silkLogo");
-      silkLogo.style.transform = "translate(" + horizontalPos + "px, -" + verticalPos + "px)";
+      silkLogo.style.transform =
+        "translate(" + horizontalPos + "px, -" + verticalPos + "px)";
       silkLogo.style.transition = "all .5s ease-out";
-    break;
-    case 'formulario':
+      break;
+    case "formulario":
       var formContainer = document.getElementById("formJune");
       formContainer.style.display = "grid";
       formContainer.style.transition = "opacity .3s ease-in";
       formContainer.style.opacity = 1;
-    break;
-    case 'movil':
+      break;
+    case "movil":
       var posicion = posicionLogo();
-      var horizontalPos = posicion["horizontal"]-34;
-      var verticalPos = posicion["vertical"]-80;
+      var horizontalPos = posicion["horizontal"] - 34;
+      var verticalPos = posicion["vertical"] - 80;
 
       var silkLogo = document.getElementById("silkLogo");
       var lineaAzul = document.getElementById("lineaAzul");
@@ -54,8 +55,9 @@ function animacion(elem) {
       silkLogo.style.transition = "all .4s ease-out";
 
       lineaAzul.style.left = "-25px";
-      silkLogo.style.transform = "translate(" + horizontalPos + "px, -" + verticalPos + "px)";
-    break;
+      silkLogo.style.transform =
+        "translate(" + horizontalPos + "px, -" + verticalPos + "px)";
+      break;
   }
 }
 
@@ -64,8 +66,8 @@ $("#formLink").click(function (e) {
   e.preventDefault();
   $("#formLink").addClass("active");
   textoDiagonal();
-  if( esMobile() ) {
-    animacion("movil")
+  if (esMobile()) {
+    animacion("movil");
   } else {
     animacion("logo");
   }
@@ -92,9 +94,17 @@ $(".form button").click(function (e) {
         }
       });
     }
+    formOk = true;
   });
   if (formOk == true) {
     var form = document.getElementById("signUpForm");
+    var $inputs = $("#signUpForm :input");
+    var values = {};
+    $inputs.each(function () {
+      values[this.name] = $(this).val();
+    });
+
+    $.post("https://silkofficial.us1.list-manage.com/subscribe/post", values);
     form.style.transition = "opacity .3s ease-in";
     form.style.opacity = 0;
     setTimeout(function () {
