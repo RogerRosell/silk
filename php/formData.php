@@ -1,6 +1,6 @@
 <?php
-$list_id = 'edac562c3e';
-$authToken = '21c7a50c4217af6e91efdf66890767da-us1';
+$list_id = '****';
+$authToken = '****';
 
 $postData = array(
     "email_address" => $_POST['values']["EMAIL"],
